@@ -10,6 +10,8 @@ urlpatterns =[
     path( 'business/', views.business, name='business'),
     path( 'politics', views.politics, name='politics'),
     path( 'sport', views.sport, name='sport'),
+    path( 'post/<slug:slug>', views.post_detail, name='post_detail'),
+
 
 ]
 

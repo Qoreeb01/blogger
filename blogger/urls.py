@@ -24,4 +24,5 @@ urlpatterns = [
     path('news/', include('blog.urls')),
     path('politics/', include('blog.urls')),
     path('sport/', include('blog.urls')),
+    
 ]

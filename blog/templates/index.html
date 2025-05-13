@@ -1,12 +1,24 @@
 {% extends 'layout.html' %}
-
+{% load static %}
 {% block content %}
 <section class="roww">
-    <main class="colu">
     <h1>
 
         Hello Everyone
     </h1>
+    {% for abc in full_post %}
+    <main class="colu">
+
+        <h2><a href="{% url 'post_detail' slug=abc.slug %}">{{ abc.title}} </a></h2>  
+        {% if abc.image %}
+        <img src="{{abc.image.url}}" style="width: 100%; height: auto; object-fit: cover">
+         {% endif %} 
+         <p>{{abc.body| truncatechars:100}}</p>
+       <p>By {{abc.author}} on {{ abc.created_on}}</p>
+           <a href="{% url 'post_detail' slug=abc.slug %}">Read More</a>
+           <hr>
+   
 </main>
+{% endfor %}
 </section>
 {% endblock %}
