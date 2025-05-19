@@ -4,10 +4,37 @@
 
 <h1>{{f-post.title }}</h1>
 {% if abc.image %}
-        <img src="{{abc.image.url}}" style="width: 100%; height: auto; object-fit: cover">
-         {% endif %} 
-         <p>By {{abc.author}} on {{ abc.created_on}}</p>
-         <p>{{abc.body}}</p>
+        <img src="{{f_post.image.url}}" style="width: 100%; height: auto; object-fit: cover">
+        {% endif %} 
+         <p>By {{f_post.author}} on {{ f_post.created_on}}</p>
+         <p>{{f_post.body}}</p>
 
-         <a href="{% url 'home' %}"></a>
+         <hr>
+         <h4>Comments</h4>
+
+            {% for comment in comments %}
+            <p><strong>{{ comment'author</strong> on  {{ comment.created_on }}</p>
+            <p>{{comment.body}}</p>
+
+{% empty %}
+<p>No comments yet</p>
+ {% endfor %}
+
+ {% if user.is_authenticated %}
+ <h3>Leave a comment</h3>
+    <from method='post'>
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type='submit'>Submit</button>
+    </form>
+
+ {% else %}
+
+ <p> You must be logged in to leave a comment <a href="{% url 'login' %}" target='_blank' rel='noopener noreferrer'>Log in </a></p>
+    {% endif %}
+
+
+
+   <hr>
+
 {% endblock %}

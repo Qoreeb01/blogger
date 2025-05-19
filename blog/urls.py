@@ -12,6 +12,8 @@ urlpatterns =[
     path( 'sport', views.sport, name='sport'),
     path( 'post/<slug:slug>', views.post_detail, name='post_detail'),
 
+    path( 'register', views.register, name='register'),
+
 
 ]
 
