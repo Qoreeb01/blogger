@@ -7,7 +7,7 @@
         <img src="{{f_post.image.url}}" style="width: 100%; height: auto; object-fit: cover">
         {% endif %} 
          <p>By {{f_post.author}} on {{ f_post.created_on}}</p>
-         <p>{{f_post.body}}</p>
+         <p>{{f_post.body |linebreaks  }}</p>
 
          <hr>
          <h4>Comments</h4>
